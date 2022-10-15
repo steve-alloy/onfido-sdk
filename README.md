@@ -1,7 +1,7 @@
 # Alloy Onfido Test App
 ## Steps:
 - npm run build
-- npm run dev
+- npm run start
 
 ## Info:
 - index.js has two endpoints (/creds for generating the applicant_id and SDK token; /check for the check_id)
