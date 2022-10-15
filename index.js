@@ -23,8 +23,8 @@ app.get("/", (req, res) => {
 app.post("/creds", async (req, res) => {
     try {
         const credsBody = {
-            "first_name": "Steve",
-            "last_name": "Giordano"
+            "first_name": req.body.firstName ? req.body.firstName : "Dale",
+            "last_name": req.body.lastName ? req.body.lastName : "Cooper"
         };
     
         const credsResponse = await fetch("https://api.onfido.com/v3.4/applicants", {
