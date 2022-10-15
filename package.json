@@ -1,0 +1,38 @@
+{
+  "name": "onfido-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "@onfido/api": "^2.3.1",
+    "dotenv": "^16.0.3",
+    "esbuild": "^0.15.10",
+    "esbuild-svelte": "^0.7.1",
+    "express": "^4.18.2",
+    "node": "^18.10.0",
+    "node-fetch": "^3.2.10",
+    "onfido-sdk-ui": "^9.1.2",
+    "svelte": "^3.50.1",
+    "svelte-preprocess": "^4.10.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "build:watch": "node build.js --mode watch",
+    "dev": "nodemon .",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steve-alloy/onfido-sdk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/steve-alloy/onfido-sdk/issues"
+  },
+  "homepage": "https://github.com/steve-alloy/onfido-sdk#readme"
+}
