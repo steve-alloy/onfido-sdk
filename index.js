@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
-const port = process.env.port;
+const port = process.env.PORT;
 const app = express();
 const publicPath = path.join(__dirname, "./build/public");
 
