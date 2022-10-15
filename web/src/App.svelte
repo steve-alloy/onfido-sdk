@@ -1,5 +1,6 @@
 <script>
     import { init } from "onfido-sdk-ui";
+    let checkId = "";
 
     const getAppId = async () => {
         const credsResponse = await fetch("/creds", {
@@ -28,6 +29,7 @@
                 });
 
                 const checkData = await checkResponse.json();
+                checkId = checkData.data.id;
                 console.log("Check Data", checkData);
             },
             steps: ["document", "complete"],
@@ -36,3 +38,9 @@
 
     getAppId();
 </script>
+
+<div>
+    {#if checkId}
+        <h3>Check ID: {checkId}</h3>
+    {/if}
+</div>
