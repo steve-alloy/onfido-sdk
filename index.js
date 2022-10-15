@@ -8,53 +8,9 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
-const port = process.env.port || 3003;
+const port = process.env.port;
 const app = express();
 const publicPath = path.join(__dirname, "./build/public");
-
-const runOnfido = async () => {
-    try {
-        const appBody = {
-            "first_name": "Steve",
-            "last_name": "Giordano"
-        };
-    
-        const appResponse = await fetch("https://api.onfido.com/v3.4/applicants", {
-            "method": "POST",
-            "body": JSON.stringify(appBody),
-            "headers": {
-                "Authorization": `Token token=${process.env.ONFIDO_API_TOKEN}`,
-                "Content-Type": "application/json"
-            }
-        });
-
-        const appData = await appResponse.json();
-
-        const appId = appData.id;
-
-        const sdkBody = {
-            "applicant_id": appId
-        };
-
-        const sdkResponse = await fetch("https://api.onfido.com/v3.4/sdk_token", {
-            "method": "POST",
-            "body": JSON.stringify(sdkBody),
-            "headers": {
-                "Authorization": `Token token=${process.env.ONFIDO_API_TOKEN}`,
-                "Content-Type": "application/json"
-            }
-        });
-
-        const sdkData = await sdkResponse.json();
-
-        const token = sdkData.token;
-
-    } catch (err) {
-        console.log("ERROR");
-    }
-}
-
-// runOnfido();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
